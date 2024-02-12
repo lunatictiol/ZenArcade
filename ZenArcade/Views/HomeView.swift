@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var segmentationSelection : ProfileSection = .topGames
-    @ObservedObject var vm = HomeViewModel()
-    @State var games:[Games]?
+    
+
+    @StateObject var vm = HomeViewModel()
+  
     
     init(){
        
@@ -21,58 +22,57 @@ struct HomeView: View {
       
     var body: some View {
         NavigationView{
-            ZStack {
-                LinearGradient(colors: [.orange,.pink,.red,.black], startPoint: .topLeading, endPoint: .bottomTrailing).ignoresSafeArea()
-                VStack{
+            VStack {
+              
                     ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack {
-                                       MainCardView()
-                                        MainCardView()
-                                        MainCardView()
+                                        HStack {
+                                            ForEach(vm.games){game in
+                                                MainCard(game: game)
+                                            }
+                                            
+                                           
+                                        }
                                     }
-                                }
-                                .frame(height: 100)
-                                .padding(30)
+                                 
+                                    .frame(height: 100)
+                                 
+                                    
                                 .transition(.move(edge: .bottom))
-                    Spacer()
-                    Picker("", selection: $segmentationSelection) {
+              
+                 
+                Picker("", selection: $vm.segmentationSelection) {
                                ForEach(ProfileSection.allCases, id: \.self) { option in
                                    Text(option.rawValue)
                                }
                     }.pickerStyle(PalettePickerStyle())
-                        
-                               .padding()
-                    
-                    Grid {
-                        
-                        GridRow {
-                            Text("")
-                            ForEach(0..<3) { _ in Color.green }
-                        }
-                        GridRow {
-                            Text("")
-                            ForEach(0..<4) { _ in Color.green }
-                        }
-                        GridRow {
-                            Text("")
-                            ForEach(0..<5) { _ in Color.green }
-                        }
+                        .padding(.top,60)
+                    VStack{
+                        ScrollView(.vertical, showsIndicators: false) {
+                                        VStack {
+                                            ForEach(vm.games){game in
+                                                GameCard(game: game)
+                                                
+                                            }
+                                            
+                                           
+                                        }
+                                    }
+                                 
+                            
+                                    .transition(.move(edge: .bottom))
                     }
-                    
-                }.navigationTitle("ZenArcade")
-                .padding()
-            }
+                    .frame(height: 500)
+                
+            }.navigationTitle("ZArcade")
+                .padding(.top,180)
+                .background(LinearGradient(colors: [.red,.white], startPoint: .topLeading, endPoint: .bottomTrailing))
             
             
         }
     }
 }
 
-enum ProfileSection : String, CaseIterable {
-    case topGames = "Top Games"
-    case topSelling = "Top Selling"
-    case Recent = "Recent"
-}
+
 
 #Preview {
     HomeView()

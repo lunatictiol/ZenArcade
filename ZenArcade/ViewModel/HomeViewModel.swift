@@ -10,6 +10,7 @@ import Foundation
 
 class HomeViewModel:ObservableObject{
     private var gameManager  = GamesManager()
+    @Published var segmentationSelection : ProfileSection = .topGames
     @Published var games=[Games]()
     
     init(){
@@ -18,7 +19,7 @@ class HomeViewModel:ObservableObject{
     }
     
     func getGames(){
-        gameManager.getGamesListy { result in
+        gameManager.getGamesList { result in
             
             DispatchQueue.main.async {
                 
@@ -36,4 +37,10 @@ class HomeViewModel:ObservableObject{
     }
     
     
+}
+
+enum ProfileSection : String, CaseIterable {
+    case topGames = "Top Games"
+    case topSelling = "Top Selling"
+    case Recent = "Recent"
 }

@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct MainView: View {
+
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        TabView {
+            HomeView().tabItem { 
+                Image(systemName: "gamecontroller.fill")
+                Text("All games") }
+            StoresView().tabItem {
+                Image(systemName: "house.circle.fill")
+                Text("Stores") }
+            
+        }.tint(.red)
+            
+            
     }
 }
 

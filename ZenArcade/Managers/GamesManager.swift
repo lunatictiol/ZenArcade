@@ -10,7 +10,7 @@ class GamesManager {
     private var apiKey  = "607672ceca2f4092b55249ac93f2999a"
     
     
-    func getGamesListy(completion: @escaping (Result<ApiResponse,ApiError>)->Void){
+    func getGamesList(completion: @escaping (Result<ApiResponse,ApiError>)->Void){
         guard let url = URL(string: "https://api.rawg.io/api/games?key=\(apiKey)") else {
             completion(.failure(ApiError.invalidURL))
             return
@@ -36,6 +36,35 @@ class GamesManager {
         
         
     }
+    func getStoresList(completion: @escaping (Result<StoreResult,ApiError>)->Void){
+        guard let url = URL(string: "https://api.rawg.io/api/stores?key=\(apiKey)") else {
+            completion(.failure(ApiError.invalidURL))
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error==nil else{
+                print("1")
+                completion(.failure(ApiError.invalidData))
+                return
+            }
+            
+            do {
+                let games = try JSONDecoder().decode(StoreResult.self, from: data )
+                completion(.success(games))
+            }
+            catch{
+                print("2")
+                completion(.failure(ApiError.invalidData))
+            }
+        }.resume()
+
+        
+        
+        
+    }
+    
+    
+    
     
     
 }
@@ -53,7 +82,7 @@ struct ApiResponse:Decodable{
 
 }
 
-struct Games:Decodable{
+struct Games:Decodable,Identifiable{
     
        let id: Int
        let slug, name, released: String
@@ -61,3 +90,19 @@ struct Games:Decodable{
        let rating: Double
 }
 
+struct StoreResult:Decodable {
+   
+    let results: [Store]
+}
+
+struct Store:Decodable,Identifiable {
+    let id: Int
+    let name, domain, slug: String
+    let games_count: Int
+    let games: [StoreGame]
+}
+struct StoreGame:Decodable,Identifiable{
+       let id: Int
+       let slug, name: String
+       let added: Int
+}
