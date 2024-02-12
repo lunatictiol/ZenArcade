@@ -63,7 +63,7 @@ struct HomeView: View {
                     }
                     .frame(height: 500)
                 
-            }.navigationTitle("ZArcade")
+            }.navigationTitle("Arcade")
                 .padding(.top,180)
                 .background(LinearGradient(colors: [.red,.white], startPoint: .topLeading, endPoint: .bottomTrailing))
             
