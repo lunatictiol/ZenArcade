@@ -7,7 +7,7 @@
 
 import Foundation
 class GamesManager {
-    private var apiKey  = "607672ceca2f4092b55249ac93f2999a"
+    private var apiKey  = ""
    
     
     func getGamesList(completion: @escaping (Result<ApiResponse,ApiError>)->Void){
