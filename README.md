@@ -28,3 +28,7 @@ The Game Details App is an application developed using SwiftUI and MVVM architec
 - Data provided by RAWG.io API.
 
 ![](images/image1.png)
+![](images/image2.png)
+![](images/image3.png)
+![](images/image4.png)
+![](images/image5.png)
