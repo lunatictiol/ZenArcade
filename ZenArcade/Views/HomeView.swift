@@ -47,20 +47,71 @@ struct HomeView: View {
                     }.pickerStyle(PalettePickerStyle())
                         .padding(.top,60)
                     VStack{
-                        ScrollView(.vertical, showsIndicators: false) {
-                                        VStack {
-                                            ForEach(vm.games){game in
-                                                GameCard(game: game)
+                        if vm.segmentationSelection.rawValue == "Games" {
+                            ScrollView(.vertical, showsIndicators: false) {
+                                VStack(spacing:20) {
+                                                ForEach(vm.games){game in
+                                                    
+                                                    NavigationLink {
+                                                        GameDetailsView(id: game.id)
+                                                    } label: {
+                                                        GameCard(game: game)
+                                                    }
+
+                                                    
+                                                    
+                                                }
                                                 
-                                            }
-                                            
-                                           
+                                               
+                                }
                                         }
-                                    }
-                                 
-                            
                                     .transition(.move(edge: .bottom))
+                        }
+                        else if vm.segmentationSelection.rawValue=="Creators"{
+                            ScrollView(.vertical, showsIndicators: false) {
+                                VStack(spacing:20) {
+                                                ForEach(vm.creators){creator in
+                                                    
+                                                    
+                                                        CreatorCard(creator: creator)
+                                                    
+
+                                                    
+                                                    
+                                                }
+                                                
+                                               
+                                }
+                                        }
+                                    .transition(.move(edge: .bottom))
+                            
+                            
+                        }
+                        else if vm.segmentationSelection.rawValue=="Developers"{
+                            ScrollView(.vertical, showsIndicators: false) {
+                                VStack(spacing:20) {
+                                                ForEach(vm.devs){dev in
+                                                    
+                                                   
+                                                      DevelopersCard(dev: dev)
+                                                    
+
+                                                    
+                                                    
+                                                }
+                                                
+                                               
+                                }
+                                        }
+                                    .transition(.move(edge: .bottom))
+                            
+                            
+                        }
+                        
+                        
+                      
                     }
+                    .padding()
                     .frame(height: 500)
                 
             }.navigationTitle("Arcade")

@@ -21,9 +21,12 @@ struct StoresView: View {
                             ForEach(vm.stores){store in
                                 NavigationLink{
                                     StoreGamesListView(title:store.name,storeGames: store.games)
+                                        .navigationBarBackButtonHidden(true)
                                 }
                             label:{
                                 StoresCard(store: store)
+                                    
+                                   
                             }
                                     
                                 
@@ -34,6 +37,7 @@ struct StoresView: View {
                 }
                 
             }.navigationTitle("Stores")
+               
         }
     }
 }

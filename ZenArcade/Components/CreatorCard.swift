@@ -12,7 +12,7 @@ struct CreatorCard: View {
     var body: some View {
         HStack(alignment: .center
         ){
-            AsyncImage(url: URL(string: creator.image_background)) { image in
+            AsyncImage(url: URL(string: creator.image)) { image in
                image.resizable()
                    .clipShape(RoundedRectangle(cornerRadius: 10))
                    .frame(width: 200, height: 200)
@@ -25,9 +25,11 @@ struct CreatorCard: View {
                     .bold()
                     .font(.title3)
                     .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
                 .lineLimit(2)
-                Text(String(creator.games_count))
+                Text("number of games \(creator.games_count)")
                     .font(.subheadline)
+                    .multilineTextAlignment(.center)
                     .foregroundStyle(.white)
             }
                 .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 1, y: 2)
@@ -45,5 +47,5 @@ struct CreatorCard: View {
 }
 
 #Preview {
-    CreatorCard(creator: Creators(id: 11, name: "devvv", image_background: "", games_count: 22))
+    CreatorCard(creator: Creators(id: 11, name: "devvv", image: "", games_count: 22))
 }

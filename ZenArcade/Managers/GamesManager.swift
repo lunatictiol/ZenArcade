@@ -8,7 +8,7 @@
 import Foundation
 class GamesManager {
     private var apiKey  = "607672ceca2f4092b55249ac93f2999a"
-    
+   
     
     func getGamesList(completion: @escaping (Result<ApiResponse,ApiError>)->Void){
         guard let url = URL(string: "https://api.rawg.io/api/games?key=\(apiKey)") else {
@@ -62,47 +62,91 @@ class GamesManager {
         
         
     }
+    func getGameDetails(id:Int, completion: @escaping (Result<GameDetails,ApiError>)->Void){
+        guard let url = URL(string: "https://api.rawg.io/api/games/\(id)?key=\(apiKey)") else {
+            completion(.failure(ApiError.invalidURL))
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error==nil else{
+                print("1")
+                completion(.failure(ApiError.invalidData))
+                return
+            }
+            
+            do {
+                let games = try JSONDecoder().decode(GameDetails.self, from: data )
+                completion(.success(games))
+            }
+            catch{
+                print("2")
+                completion(.failure(ApiError.invalidData))
+            }
+        }.resume()
+
+        
+        
+        
+    }
     
     
+    func getCreatorsList(completion: @escaping (Result<CreatorResponse,ApiError>)->Void){
+        guard let url = URL(string: "https://api.rawg.io/api/creators?key=\(apiKey)") else {
+            completion(.failure(ApiError.invalidURL))
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error==nil else{
+                print("1")
+                completion(.failure(ApiError.invalidData))
+                return
+            }
+            
+            do {
+                let creators = try JSONDecoder().decode(CreatorResponse.self, from: data )
+                completion(.success(creators))
+            }
+            catch{
+                print("2")
+                completion(.failure(ApiError.invalidData))
+            }
+        }.resume()
+
+        
+        
+        
+    }
     
+    
+    func getDevelopersList(completion: @escaping (Result<DevelopersResponse,ApiError>)->Void){
+        guard let url = URL(string: "https://api.rawg.io/api/developers?key=\(apiKey)") else {
+            completion(.failure(ApiError.invalidURL))
+            return
+        }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error==nil else{
+                print("1")
+                completion(.failure(ApiError.invalidData))
+                return
+            }
+            
+            do {
+                let devs = try JSONDecoder().decode(DevelopersResponse.self, from: data )
+                completion(.success(devs))
+            }
+            catch{
+                print("2")
+                completion(.failure(ApiError.invalidData))
+            }
+        }.resume()
+
+        
+        
+        
+    }
     
     
 }
 
 
 
-enum ApiError:Error{
-    case invalidURL
-    case invalidData
-}
-
-struct ApiResponse:Decodable{
-    let results: [Games]
-    
-
-}
-
-struct Games:Decodable,Identifiable{
-    
-       let id: Int
-       let slug, name, released: String
-       let background_image: String
-       let rating: Double
-}
-
-struct StoreResult:Decodable {
-   
-    let results: [Store]
-}
-
-struct Store:Decodable,Identifiable {
-    let id: Int
-    let name, domain, slug: String
-    let games_count: Int
-    let games: [StoreGame]
-}
-struct StoreGame:Decodable,Identifiable{
-       let id: Int
-       let slug, name: String
-       let added: Int
-}

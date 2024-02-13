@@ -10,12 +10,16 @@ import Foundation
 
 class HomeViewModel:ObservableObject{
     private var gameManager  = GamesManager()
-    @Published var segmentationSelection : ProfileSection = .topGames
+    @Published var segmentationSelection : ProfileSection = .games
     @Published var games=[Games]()
+    @Published var creators = [Creators]()
+    @Published var devs = [Developers]()
+    
     
     init(){
         getGames()
-        
+        getCreators()
+        getDevs()
     }
     
     func getGames(){
@@ -35,12 +39,46 @@ class HomeViewModel:ObservableObject{
         }
         
     }
+    func getCreators(){
+        gameManager.getCreatorsList() { result in
+            
+            DispatchQueue.main.async {
+                
+                
+                switch result{
+                    
+                case .success(let success):
+                    self.creators = success.results
+                case .failure(let failure):
+                    print(failure)
+                }
+            }
+        }
+    }
+    func getDevs(){
+        gameManager.getDevelopersList() { result in
+            
+            DispatchQueue.main.async {
+                
+                
+                switch result{
+                    
+                case .success(let success):
+                    self.devs = success.results
+                case .failure(let failure):
+                    print(failure)
+                }
+            }
+        }
+        
+    }
+    
     
     
 }
 
 enum ProfileSection : String, CaseIterable {
-    case topGames = "Top Games"
-    case topSelling = "Top Selling"
-    case Recent = "Recent"
+    case games = "Games"
+    case developers = "Developers"
+    case creators = "Creators"
 }

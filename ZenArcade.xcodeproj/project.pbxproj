@@ -11,12 +11,17 @@
 		185728942B7A4682003932ED /* StoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185728932B7A4682003932ED /* StoresViewModel.swift */; };
 		185728962B7A63AE003932ED /* StoreGamesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185728952B7A63AE003932ED /* StoreGamesListView.swift */; };
 		185728982B7A63C1003932ED /* StoreGamesCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185728972B7A63C1003932ED /* StoreGamesCard.swift */; };
+		185D68062B7B274A00E3C4F1 /* GameDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D68052B7B274A00E3C4F1 /* GameDetailsViewModel.swift */; };
+		185D68092B7B959B00E3C4F1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D68082B7B959B00E3C4F1 /* Model.swift */; };
+		185D680B2B7B973A00E3C4F1 /* CreatorCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D680A2B7B973A00E3C4F1 /* CreatorCard.swift */; };
+		185D680D2B7B9B0F00E3C4F1 /* DevelopersCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D680C2B7B9B0F00E3C4F1 /* DevelopersCard.swift */; };
 		189ED14C2B793B27003CDDA2 /* ZenArcadeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189ED14B2B793B27003CDDA2 /* ZenArcadeApp.swift */; };
 		189ED14E2B793B27003CDDA2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189ED14D2B793B27003CDDA2 /* MainView.swift */; };
 		189ED1502B793B29003CDDA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189ED14F2B793B29003CDDA2 /* Assets.xcassets */; };
 		189ED1532B793B29003CDDA2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 189ED1522B793B29003CDDA2 /* Preview Assets.xcassets */; };
 		189ED15D2B793BC4003CDDA2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189ED15C2B793BC4003CDDA2 /* HomeView.swift */; };
 		189ED1602B7942EA003CDDA2 /* MainCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189ED15F2B7942EA003CDDA2 /* MainCard.swift */; };
+		18A538362B7A91A900F15B41 /* GameDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A538352B7A91A900F15B41 /* GameDetailsView.swift */; };
 		18B48BFD2B79FA6C005CBF07 /* GamesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B48BFC2B79FA6C005CBF07 /* GamesManager.swift */; };
 		18B48C002B7A04DE005CBF07 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B48BFF2B7A04DE005CBF07 /* HomeViewModel.swift */; };
 		18B48C022B7A0DF2005CBF07 /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B48C012B7A0DF2005CBF07 /* GameCard.swift */; };
@@ -28,6 +33,10 @@
 		185728932B7A4682003932ED /* StoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresViewModel.swift; sourceTree = "<group>"; };
 		185728952B7A63AE003932ED /* StoreGamesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGamesListView.swift; sourceTree = "<group>"; };
 		185728972B7A63C1003932ED /* StoreGamesCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreGamesCard.swift; sourceTree = "<group>"; };
+		185D68052B7B274A00E3C4F1 /* GameDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsViewModel.swift; sourceTree = "<group>"; };
+		185D68082B7B959B00E3C4F1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		185D680A2B7B973A00E3C4F1 /* CreatorCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorCard.swift; sourceTree = "<group>"; };
+		185D680C2B7B9B0F00E3C4F1 /* DevelopersCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersCard.swift; sourceTree = "<group>"; };
 		189ED1482B793B27003CDDA2 /* ZenArcade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZenArcade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		189ED14B2B793B27003CDDA2 /* ZenArcadeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenArcadeApp.swift; sourceTree = "<group>"; };
 		189ED14D2B793B27003CDDA2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -35,6 +44,7 @@
 		189ED1522B793B29003CDDA2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		189ED15C2B793BC4003CDDA2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		189ED15F2B7942EA003CDDA2 /* MainCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCard.swift; sourceTree = "<group>"; };
+		18A538352B7A91A900F15B41 /* GameDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsView.swift; sourceTree = "<group>"; };
 		18B48BFC2B79FA6C005CBF07 /* GamesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesManager.swift; sourceTree = "<group>"; };
 		18B48BFF2B7A04DE005CBF07 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		18B48C012B7A0DF2005CBF07 /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
@@ -52,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185D68072B7B958D00E3C4F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				185D68082B7B959B00E3C4F1 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		189ED13F2B793B27003CDDA2 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +89,7 @@
 		189ED14A2B793B27003CDDA2 /* ZenArcade */ = {
 			isa = PBXGroup;
 			children = (
+				185D68072B7B958D00E3C4F1 /* Model */,
 				18B48BFE2B7A049F005CBF07 /* ViewModel */,
 				189ED15E2B7942AC003CDDA2 /* Components */,
 				189ED15B2B793B98003CDDA2 /* Managers */,
@@ -98,6 +117,7 @@
 				189ED15C2B793BC4003CDDA2 /* HomeView.swift */,
 				18B48C052B7A2B84005CBF07 /* StoresView.swift */,
 				185728952B7A63AE003932ED /* StoreGamesListView.swift */,
+				18A538352B7A91A900F15B41 /* GameDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -124,6 +144,8 @@
 				18B48C012B7A0DF2005CBF07 /* GameCard.swift */,
 				185728912B7A448F003932ED /* StoresCard.swift */,
 				185728972B7A63C1003932ED /* StoreGamesCard.swift */,
+				185D680A2B7B973A00E3C4F1 /* CreatorCard.swift */,
+				185D680C2B7B9B0F00E3C4F1 /* DevelopersCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -133,6 +155,7 @@
 			children = (
 				18B48BFF2B7A04DE005CBF07 /* HomeViewModel.swift */,
 				185728932B7A4682003932ED /* StoresViewModel.swift */,
+				185D68052B7B274A00E3C4F1 /* GameDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -207,15 +230,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				185D68092B7B959B00E3C4F1 /* Model.swift in Sources */,
 				185728962B7A63AE003932ED /* StoreGamesListView.swift in Sources */,
 				185728922B7A448F003932ED /* StoresCard.swift in Sources */,
+				18A538362B7A91A900F15B41 /* GameDetailsView.swift in Sources */,
+				185D680D2B7B9B0F00E3C4F1 /* DevelopersCard.swift in Sources */,
 				18B48C062B7A2B84005CBF07 /* StoresView.swift in Sources */,
 				185728982B7A63C1003932ED /* StoreGamesCard.swift in Sources */,
+				185D68062B7B274A00E3C4F1 /* GameDetailsViewModel.swift in Sources */,
 				185728942B7A4682003932ED /* StoresViewModel.swift in Sources */,
 				189ED15D2B793BC4003CDDA2 /* HomeView.swift in Sources */,
 				18B48C002B7A04DE005CBF07 /* HomeViewModel.swift in Sources */,
 				189ED14E2B793B27003CDDA2 /* MainView.swift in Sources */,
 				189ED14C2B793B27003CDDA2 /* ZenArcadeApp.swift in Sources */,
+				185D680B2B7B973A00E3C4F1 /* CreatorCard.swift in Sources */,
 				189ED1602B7942EA003CDDA2 /* MainCard.swift in Sources */,
 				18B48C022B7A0DF2005CBF07 /* GameCard.swift in Sources */,
 				18B48BFD2B79FA6C005CBF07 /* GamesManager.swift in Sources */,
